@@ -1,129 +1,571 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Adventure rafting trips with Benjamin White Water Rafting. Discover your next white water journey today!" />
-  <title>Home | Benjamin White Water Rafting</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Experience thrilling white water rafting adventures with expert guides. Book your trip today for an unforgettable journey!">
+    <title>Home | Rapids Adventure Rafting</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #2a5d84;
+            --secondary: #4a9bc8;
+            --accent: #e74c3c;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f0f5f9;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--secondary);
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--accent);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #1a3c57;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: 3rem;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        nav a.active {
+            color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 85vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('https://images.unsplash.com/photo-1507697364665-69eec30ea94a?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Newsletter Section */
+        .newsletter {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .newsletter h2 {
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .newsletter h2::after {
+            background-color: var(--accent);
+        }
+        
+        .newsletter-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+        
+        label {
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        input {
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        /* Grid Content Section */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .grid-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .grid-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .grid-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .grid-content {
+            padding: 25px;
+        }
+        
+        .grid-content h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .cta-section {
+            background-color: var(--light);
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            .hero {
+                height: 70vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .newsletter-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero {
+                height: 60vh;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="container header-container">
-      <div class="logo">
-        <div class="logo-text">Benjamin<span>White Water Rafting</span></div>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#" class="active">Home</a></li>
-          <li><a href="trips.html">Trips</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-text">Rapids<span>Adventure</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="trips.html">Trips</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Welcome to Benjamin White Water Rafting</h1>
-      <p>Thrilling Canadian white water rafting adventures for every explorer</p>
-      <a href="trips.html" class="btn">Explore Trips</a>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Experience the Thrill of White Water Rafting</h1>
+            <p>Join us for unforgettable adventures on the most exciting rivers in the country</p>
+            <a href="trips.html" class="btn">Explore Our Trips</a>
+        </div>
+    </section>
 
-  <!-- Newsletter Signup -->
-  <section class="newsletter">
-    <div class="container">
-      <h2>Stay Connected with Benjamin Rafting</h2>
-      <form class="newsletter-form">
-        <div class="form-group">
-          <label for="name">Full Name</label>
-          <input type="text" id="name" name="name" required />
+    <!-- Newsletter Signup -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Join Our Adventure Community</h2>
+            <form class="newsletter-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group full-width">
+                    <button type="submit" class="btn btn-secondary">Get Adventure Updates</button>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" required />
-        </div>
-        <div class="form-group full-width">
-          <button type="submit" class="btn btn-secondary">Subscribe Now</button>
-        </div>
-      </form>
-    </div>
-  </section>
+    </section>
 
-  <!-- Features Grid -->
-  <section class="container">
-    <h2>Why Choose Benjamin White Water Rafting?</h2>
-    <div class="grid-container">
-      <div class="grid-item">
-        <div class="grid-img" style="background-image: url('images/guide.jpg');"></div>
-        <div class="grid-content">
-          <h3>Experienced Guides</h3>
-          <p>Certified professionals to guide your safe and fun adventures on the river.</p>
+    <!-- Grid Content Section -->
+    <section class="container">
+        <h2>Why Choose Rapids Adventure?</h2>
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="grid-img" style="background-image: url('https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="grid-content">
+                    <h3>Expert Guides</h3>
+                    <p>Our certified guides have over 10 years of experience navigating rivers across the country. Safety is our top priority while ensuring you have the adventure of a lifetime.</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="grid-img" style="background-image: url('https://images.unsplash.com/photo-1591485423007-765bde4139ef?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="grid-content">
+                    <h3>Top Equipment</h3>
+                    <p>We use only the highest quality rafts, paddles, and safety gear. All equipment is inspected daily to ensure your adventure is both thrilling and safe.</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="grid-img" style="background-image: url('https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="grid-content">
+                    <h3>Varied Experiences</h3>
+                    <p>From gentle family floats to extreme class V rapids, we have adventures suitable for all experience levels. Our trips range from half-day excursions to week-long expeditions.</p>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="grid-item">
-        <div class="grid-img" style="background-image: url('images/gear.jpg');"></div>
-        <div class="grid-content">
-          <h3>Top-Rated Equipment</h3>
-          <p>We use only the best gear to ensure comfort and safety during your trip.</p>
-        </div>
-      </div>
-      <div class="grid-item">
-        <div class="grid-img" style="background-image: url('images/family.jpg');"></div>
-        <div class="grid-content">
-          <h3>Fun for All Ages</h3>
-          <p>Beginner-friendly and family-safe trips, as well as advanced thrill-seeker options.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Call to Action -->
-  <section class="cta-section">
-    <div class="container">
-      <h2>Book Your Next White Water Experience!</h2>
-      <p>Join Benjamin White Water Rafting for an unforgettable river adventure.</p>
-      <a href="trips.html" class="btn">Browse Trips</a>
-    </div>
-  </section>
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready for Your Next Adventure?</h2>
+            <p>Explore our exciting trips and book your white water rafting experience today. Create memories that will last a lifetime!</p>
+            <a href="trips.html" class="btn">View All Trips</a>
+        </div>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-column">
-          <h3>Benjamin White Water Rafting</h3>
-          <p>Canada’s trusted rafting company since 2005. Adventure starts here.</p>
-          <div class="social-links">
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">Twitter</a>
-            <a href="#">YouTube</a>
-          </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Rapids Adventure</h3>
+                    <p>Providing thrilling white water rafting experiences since 2005. Safety, fun, and adventure are at the heart of everything we do.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" aria-label="Instagram">i</a>
+                        <a href="#" aria-label="Twitter">t</a>
+                        <a href="#" aria-label="YouTube">y</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="trips.html">Trips</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p>456 Rapids Lane, Wetaskiwin, Alberta, Canada</p>
+                    <p>Phone: (780) 123-4567<br>Email: info@benexplicitrafting.ca</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Rapids Adventure Rafting. All rights reserved.</p>
+            </div>
         </div>
-        <div class="footer-column">
-          <h3>Quick Links</h3>
-          <ul class="footer-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="trips.html">Trips</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>Contact</h3>
-          <p>456 Rapids Lane, Wetaskiwin, Alberta, Canada</p>
-          <p>Phone: (780) 123-4567<br />Email: info@benjaminrafting.ca</p>
-        </div>
-      </div>
-      <div class="copyright">
-        <p>&copy; 2025 Benjamin White Water Rafting. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+    </footer>
 </body>
 </html>
